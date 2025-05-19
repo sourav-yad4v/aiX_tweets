@@ -1,0 +1,3 @@
+streamlit
+twikit
+python-dotenv
