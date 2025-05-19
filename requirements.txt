@@ -1,3 +1,4 @@
 streamlit
 twikit
+uvicorn
 python-dotenv
