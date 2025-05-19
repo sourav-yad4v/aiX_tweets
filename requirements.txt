@@ -1,4 +1,5 @@
 streamlit
 twikit
 uvicorn
+fastapi
 python-dotenv
