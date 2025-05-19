@@ -1,7 +1,8 @@
 import os
 import asyncio
-import streamlit as st
 from dotenv import load_dotenv
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 from twikit import Client
 
 # Load credentials from .env
@@ -11,6 +12,7 @@ EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
 
 client = Client('en-US')
+app = FastAPI()
 
 ACCOUNTS = [
     'thenextweb',
@@ -50,14 +52,7 @@ async def fetch_all_tweets():
             all_tweets[account] = {"error": str(e)}
     return all_tweets
 
-async def main():
-    st.set_page_config(page_title="Tech Tweets JSON", layout="wide")
-    st.title("📱 Latest Tweets from Tech Accounts (JSON)")
-
-    with st.spinner("Fetching tweets for all accounts..."):
-        data = await fetch_all_tweets()
-
-    st.json(data)
-
-if __name__ == "__main__":
-    asyncio.run(main())
+@app.get("/")
+async def root():
+    data = await fetch_all_tweets()
+    return JSONResponse(content=data)
