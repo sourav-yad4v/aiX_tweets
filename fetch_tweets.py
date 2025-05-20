@@ -19,6 +19,7 @@ ACCOUNTS = [
     'milesdeutscher',
     'VictorYoungMe',
     'MartyXBT',
+    '0xApolonis',
 ]
 
 async def get_latest_tweets_from_user(username, limit=10):
