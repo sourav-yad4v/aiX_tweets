@@ -15,14 +15,10 @@ client = Client('en-US')
 app = FastAPI()
 
 ACCOUNTS = [
-    'thenextweb',
-    'TechCrunch',
-    'TechRepublic',
-    'engadget',
-    'arstechnica',
-    'WIRED',
-    'gigaom',
-    'mashable'
+    'PixOnChain',
+    'milesdeutscher',
+    'VictorYoungMe',
+    'MartyXBT',
 ]
 
 async def get_latest_tweets_from_user(username, limit=10):
